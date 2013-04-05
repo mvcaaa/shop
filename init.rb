@@ -1,8 +1,6 @@
 require_relative 'store_application'
 
 StoreApplication.new
-StoreApplication.new
-StoreApplication.new
 
 @items = []
 @items << RealItem.new({:name=>'car', :price=>400000, :weight=>1001 })
