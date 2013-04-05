@@ -20,9 +20,8 @@ cart.add_item RealItem.new({:name=>'car', :price=>400000, :weight=>1001 })
 cart.add_item RealItem.new({:name=>'car', :price=>424000, :weight=>1400 })
 cart.add_item RealItem.new({:name=>'kettle', :price=>20, :weight=>4 })
 
-p cart.all_cars
-p cart.all_kettles
-
+method = 'all_cars'
+p cart.send(method)
 
 
 
