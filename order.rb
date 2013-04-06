@@ -1,5 +1,5 @@
 class Order
-  attr_reader :items
+  attr_reader :items, :placed_at
 
   include ItemContainer
 
@@ -8,6 +8,12 @@ class Order
   end
 
   def place
+    @placed_at = Time.now
+  end
+
+
+  def send_notification_email
+    require 'pony'
     thr = Thread.new do
       Pony.mail({
                     :to => StoreApplication::Admin.email,
