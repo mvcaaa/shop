@@ -12,6 +12,10 @@ class Cart
     @owner = owner
   end
 
+  def add_items(*items)
+    @items += items
+  end
+
   # @return [Object]
   def save_to_file
     File.open("#{@owner}_cart.txt", 'w') do |f|
