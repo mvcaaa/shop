@@ -5,17 +5,25 @@ require_relative '../app/virtual_item'
 
 describe Item do
 
-  before(:all) do
+  before(:each) do
     @item = Item.new('kettle', price:200)
+  end
+
+  after(:each) do
+    @item = nil
   end
 
 
   it 'Calculate price according to a special formula' do
-    @item.price.should == 182
+    @item.price.to_i.should == 222
   end
 
   it 'to_s of an object' do
-    @item.to_s.should == 'kettle:142.0'
+    @item.to_s.should == 'kettle:222.0'
+  end
+
+  it 'chack tax calculations' do
+    @item.send(:tax).should_not be_nil
   end
 
 end
