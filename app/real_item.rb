@@ -2,13 +2,17 @@ class RealItem < Item
 
   attr_reader :weight
 
-  def initialize(options = {})
+  show_info_about :weight, lambda { |attr| attr > 5 }
+
+  def initialize(name, options = {})
     @weight = options[:weight]
-    super(options[:name], options)
+    super(name, options)
   end
 
   def info
-    yield(weight)
+    if !@@show_info_about[:weight] || (@@show_info_about[:weight]).call(weight)
+      yield(weight)
+    end
     super
   end
 
