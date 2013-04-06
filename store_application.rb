@@ -4,7 +4,6 @@ class StoreApplication
     def config
       unless @instance
         yield(self)
-        require 'pony'
         require_relative 'string'
         require_relative 'item'
         require_relative 'item_container'

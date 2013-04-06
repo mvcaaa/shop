@@ -25,7 +25,8 @@ cart.add_item RealItem.new({:name=>'kettle', :price=>20, :weight=>4 })
 order = Order.new
 @items.each { |i| order.add_item(i) }
 
-#order.place
+order.place
+#order.send_notification_email
 
 
 
