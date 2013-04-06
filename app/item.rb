@@ -1,15 +1,12 @@
 class Item
 
   attr_reader :real_price, :name
-  attr_writer :price
-
-  @@discount = 0.1
 
   def self.discount
-    if Time.now.month== 4
-      return @@discount += 0.2
+    if Time.now.month== 12
+      0.2
     else
-      return @@discount
+      0.1
     end
   end
 
@@ -23,8 +20,12 @@ class Item
     yield(name)
   end
 
+  def price=(value)
+    @real_price = value
+  end
+
   def price
-    (@real_price - @real_price*self.class.discount) + tax
+    (@real_price - @real_price*self.class.discount) + tax if @real_price
   end
 
   def to_s
