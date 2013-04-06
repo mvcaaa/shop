@@ -1,4 +1,4 @@
-require_relative 'store_application'
+require_relative 'app/store_application'
 
 StoreApplication.config do |app|
   app.name = 'My Store'
